@@ -43,7 +43,9 @@ defmodule Catcasts.Mixfile do
       {:cowboy, "~> 1.0"},
       {:ueberauth, "~> 0.4"}, # for google auth
       {:ueberauth_google, "~> 0.5"}, # for google auth
-      {:ex_machina, "~> 2.0", only: :test} # for creating data in tests
+      {:ex_machina, "~> 2.0", only: :test}, # for creating data in tests
+      {:poison, "~> 3.1"},
+      {:httpoison, "~> 0.13"}
     ]
   end
 

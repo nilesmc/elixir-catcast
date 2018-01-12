@@ -22,7 +22,7 @@ defmodule CatcastsWeb.VideoControllerTest do
   describe "new video" do
     test "renders form", %{conn: conn} do
       conn = get conn, video_path(conn, :new)
-      assert html_response(conn, 200) =~ "New Video"
+      assert html_response(conn, 200) =~ "Add a video"
     end
   end
 
@@ -39,7 +39,7 @@ defmodule CatcastsWeb.VideoControllerTest do
 
     test "renders errors when data is invalid", %{conn: conn} do
       conn = post conn, video_path(conn, :create), video: @invalid_attrs
-      assert html_response(conn, 200) =~ "New Video"
+      assert html_response(conn, 200) =~ "Add a video"
     end
   end
 
