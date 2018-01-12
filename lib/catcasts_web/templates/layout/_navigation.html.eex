@@ -8,7 +8,7 @@
       <li class="menu-text">Catcasts</li>
     </ul>
   </div>
-<div class="top-bar-right">
+  <div class="top-bar-right">
     <ul class="menu">
       <%= if @conn.assigns[:user] do %>
         <li class="menu-text">
@@ -32,4 +32,5 @@
         </li>
       <% end %>
     </ul>
+  </div>
 </div>
