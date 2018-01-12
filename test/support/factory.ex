@@ -3,10 +3,10 @@ defmodule Catcasts.Factory do
 
   def user_factory do
     %Catcasts.User{
-      token: "this-is-a-token",
-      email: "mom@example.com",
-      first_name: "Mother",
-      last_name: "Lady",
+      token: "ffnebyt73bich9",
+      email: "batman@example.com",
+      first_name: "Bruce",
+      last_name: "Wayne",
       provider: "google"
     }
   end
