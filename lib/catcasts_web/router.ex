@@ -24,6 +24,7 @@ defmodule CatcastsWeb.Router do
   scope "/auth", CatcastsWeb do
     pipe_through :browser
 
+    get "/signout", AuthController, :delete
     get "/:provider", AuthController, :request
     get "/:provider/callback", AuthController, :new
   end
