@@ -40,7 +40,9 @@ defmodule Catcasts.Mixfile do
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
-      {:cowboy, "~> 1.0"}
+      {:cowboy, "~> 1.0"},
+      {:ueberauth, "~> 0.4"}, # for google auth
+      {:ueberauth_google, "~> 0.5"} # for google auth
     ]
   end
 
