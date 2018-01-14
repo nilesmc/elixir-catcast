@@ -2,24 +2,26 @@ defmodule CatcastsWeb.VideoControllerTest do
   use CatcastsWeb.ConnCase
   import Catcasts.Factory
 
-  alias Catcasts.Videos
+  alias Catcasts.Videos.Video
 
   @create_attrs %{video_id: "https://www.youtube.com/watch?v=wZZ7oFKsKzY"}
   @invalid_attrs %{video_id: ""}
 
+  # Update this fixture
   def fixture(:video) do
     user = insert(:user)
+
     video = Catcasts.Repo.insert! %Video{
       duration: "PT2M2S",
       thumbnail: "https://i.ytimg.com/vi/1rlSjdnAKY4/hqdefault.jpg",
       title: "Super Troopers (2/5) Movie CLIP - The Cat Game (2001) HD",
       video_id: "1rlSjdnAKY4",
-      view_count: 658281,
+      view_count: 658_281,
       user_id: user.id
     }
 
     {:ok, video: video, user: user}
- end
+  end
 
   describe "index" do
     test "lists all videos", %{conn: conn} do
@@ -72,6 +74,6 @@ defmodule CatcastsWeb.VideoControllerTest do
   end
 
   defp create_video(_) do
-    video = fixture(:video)
+    fixture(:video)
   end
 end

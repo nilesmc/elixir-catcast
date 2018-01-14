@@ -25,7 +25,7 @@ defmodule CatcastsWeb.VideoController do
       regex ->
         YoutubeData.create_or_show_video(conn, regex)
     end
-end
+  end
 
   def show(conn, %{"id" => id}) do
     video = Videos.get_video!(id)
