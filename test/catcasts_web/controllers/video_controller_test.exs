@@ -25,7 +25,7 @@ defmodule CatcastsWeb.VideoControllerTest do
   describe "index" do
     test "lists all videos", %{conn: conn} do
       conn = get conn, video_path(conn, :index)
-      assert html_response(conn, 200) =~ "Listing Videos"
+      assert html_response(conn, 200) =~ "Cat Videos"
     end
   end
 
