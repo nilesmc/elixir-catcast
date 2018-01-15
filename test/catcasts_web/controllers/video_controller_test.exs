@@ -65,6 +65,16 @@ defmodule CatcastsWeb.VideoControllerTest do
     end
   end
 
+  describe "show video" do
+    setup [:create_video]
+
+    test "shows chosen video", %{conn: conn, video: video} do
+      conn = get conn, video_path(conn, :show, video)
+
+      assert html_response(conn, 200) =~ video.title
+    end
+  end
+
   describe "delete video" do
     setup [:create_video]
 
