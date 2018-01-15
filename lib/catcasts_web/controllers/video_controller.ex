@@ -1,5 +1,6 @@
 defmodule CatcastsWeb.VideoController do
   use CatcastsWeb, :controller
+  use Rummage.Phoenix.Controller
 
   alias Catcasts.Videos
   alias Catcasts.Videos.{Video, YoutubeData}
