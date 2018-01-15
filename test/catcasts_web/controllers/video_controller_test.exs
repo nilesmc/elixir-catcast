@@ -7,7 +7,6 @@ defmodule CatcastsWeb.VideoControllerTest do
   @create_attrs %{video_id: "https://www.youtube.com/watch?v=wZZ7oFKsKzY"}
   @invalid_attrs %{video_id: ""}
 
-  # Update this fixture
   def fixture(:video) do
     user = insert(:user)
 
@@ -32,7 +31,12 @@ defmodule CatcastsWeb.VideoControllerTest do
 
   describe "new video" do
     test "renders form", %{conn: conn} do
-      conn = get conn, video_path(conn, :new)
+      user = insert(:user)
+
+      conn = conn
+             |> assign(:user, user)
+             |> get(video_path(conn, :new))
+
       assert html_response(conn, 200) =~ "Add a video"
     end
   end
@@ -54,8 +58,8 @@ defmodule CatcastsWeb.VideoControllerTest do
       user = insert(:user)
 
       conn = conn
-             |> assign(:user, user)
-             |> post(video_path(conn, :create), video: @invalid_attrs)
+      |> assign(:user, user)
+      |> post(video_path(conn, :create), video: @invalid_attrs)
 
       assert html_response(conn, 200) =~ "Add a video"
     end

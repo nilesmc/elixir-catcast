@@ -1,6 +1,7 @@
 defmodule Catcasts.Videos.YoutubeData do
   import Phoenix.Controller, only: [put_flash: 3, redirect: 2]
   import CatcastsWeb.Router.Helpers
+  require Logger
 
   alias Catcasts.Videos.Video
 
@@ -38,8 +39,15 @@ defmodule Catcasts.Videos.YoutubeData do
     |> List.first
   end
 
-  defp get_json_data(video_id) do
-    HTTPoison.get! "https://www.googleapis.com/youtube/v3/videos?id=#{video_id}&key=#{System.get_env("YOUTUBE_API_KEY")}&part=snippet,statistics,contentDetails&fields=items(id,snippet(title,thumbnails(high)),statistics(viewCount),contentDetails(duration))"
+  def get_json_data(video_id) do
+    Logger.info System.get_env("YOUTUBE_API_KEY")
+    Logger.info "POOOOOOOOOP"
+
+    HTTPoison.get!(
+      "https://www.googleapis.com/youtube/v3/videos?id=#{video_id}&key=#{
+        System.get_env("YOUTUBE_API_KEY")
+      }&part=snippet,statistics,contentDetails&fields=items(id,snippet(title,thumbnails(high)),statistics(viewCount),contentDetails(duration))"
+    )
   end
 
   defp decode_json_data(json_data) do
